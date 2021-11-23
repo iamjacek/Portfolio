@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.media.bigDesktop} {
     padding: 25px 25%;
     h1 {
-    font-size: 22px;
+      font-size: 22px;
     }
     h2 {
       font-size: 18px;
@@ -48,61 +48,58 @@ const Testimonials = styled.div`
 `
 
 const Arrow = styled.img`
-    cursor: pointer;
-   transform: ${({left}) => left ? 'rotate(180deg)' : ''};
-   padding: 10px 10px;
-   ${({ theme }) => theme.media.bigDesktop} {
-     transform: ${({left}) => left ? 'rotate(180deg) scale(1.2)' : 'scale(1.2)'};
-   }
+  cursor: pointer;
+  transform: ${({ left }) => (left ? 'rotate(180deg)' : '')};
+  padding: 10px 10px;
+  ${({ theme }) => theme.media.bigDesktop} {
+    transform: ${({ left }) =>
+      left ? 'rotate(180deg) scale(1.2)' : 'scale(1.2)'};
+  }
 `
 
 const Carousel = () => {
   const [testiNo, switchTesti] = useState(1)
 
   const prevTesti = () => {
-    if (testiNo === 1) switchTesti(testiNo - 1)  
-    if (testiNo === 2) switchTesti(testiNo - 1) 
-    if (testiNo === 0) switchTesti(testiNo + 2) 
+    if (testiNo === 1) switchTesti(testiNo - 1)
+    if (testiNo === 2) switchTesti(testiNo - 1)
+    if (testiNo === 0) switchTesti(testiNo + 2)
   }
 
   const nextTesti = () => {
-    if (testiNo === 1) switchTesti(testiNo + 1)  
-    if (testiNo === 2) switchTesti(testiNo - 2)  
-    if (testiNo === 0) switchTesti(testiNo + 1)  
+    if (testiNo === 1) switchTesti(testiNo + 1)
+    if (testiNo === 2) switchTesti(testiNo - 2)
+    if (testiNo === 0) switchTesti(testiNo + 1)
   }
 
+  return (
+    <Wrapper>
+      <Arrow left src={next} onClick={prevTesti} alt="Previous testimonials" />
 
-  return  (
-<Wrapper>
-    <Arrow left src={next}  onClick={prevTesti} alt="Previous testimonials" />
-  
-  {(testiNo === 1) && (
-    <Testimonials>
-      <h1>Great Communication. Very easy process with suprising effect!</h1>
-      <h2>Anna CEO at Payroll</h2>
-    </Testimonials>
-  )}
+      {testiNo === 1 && (
+        <Testimonials>
+          <h1>Great Communication. Very easy process with suprising effect!</h1>
+          <h2>Anna CEO at Payroll</h2>
+        </Testimonials>
+      )}
 
-  {(testiNo === 2) && (
-    <Testimonials>
-      <h1>Excellent job! Highly recommended!</h1>
-      <h2>John Doe at RPS Gym</h2>
-    </Testimonials>
-  )}
-  
-  {(testiNo === 0) && (
-    <Testimonials>
-      <h1>Great Designs. I like your colors!</h1>
-      <h2>Mike at Dribbble</h2>
-    </Testimonials>
-  )}
-    
-    <Arrow src={next}  onClick={nextTesti} alt="Next testimonials"/>
-  </Wrapper>
+      {testiNo === 2 && (
+        <Testimonials>
+          <h1>Excellent job! Highly recommended!</h1>
+          <h2>Jack Martin at RPS Gym</h2>
+        </Testimonials>
+      )}
+
+      {testiNo === 0 && (
+        <Testimonials>
+          <h1>Great Designs. I like your colors!</h1>
+          <h2>Mike at Dribbble</h2>
+        </Testimonials>
+      )}
+
+      <Arrow src={next} onClick={nextTesti} alt="Next testimonials" />
+    </Wrapper>
   )
 }
-  
-
-
 
 export default Carousel

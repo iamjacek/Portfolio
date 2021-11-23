@@ -31,6 +31,7 @@ const StyledWrapper = styled.div`
 `
 
 const ButtonWrapper = styled.div`
+  border-radius: 8px;
   position: absolute;
   cursor: pointer;
   bottom: -25px;
@@ -41,6 +42,7 @@ const ButtonWrapper = styled.div`
 `
 
 const Frame = styled.div`
+  border-radius: 18px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -55,12 +57,11 @@ const Frame = styled.div`
     black -280%,
     ${({ theme }) => theme.colors.gray} 150%
   );
-  
+
   z-index: 0;
 `
 
 const FormWrapper = styled.div`
-
   width: 100%;
   max-width: 500px;
   display: flex;
@@ -79,16 +80,15 @@ const FormWrapper = styled.div`
       padding: 10px 0;
       max-width: 600px;
     }
-    
   }
   ${({ theme }) => theme.media.bigDesktop} {
-      transform: scale(1.2);
-      max-width: 800px;
-    }
-    @media(min-width: 2500px) {
-      transform: scale(1.8);
-      max-width: 1200px;
-    }
+    transform: scale(1.2);
+    max-width: 800px;
+  }
+  @media (min-width: 2500px) {
+    transform: scale(1.8);
+    max-width: 1200px;
+  }
 `
 
 const NameForm = styled.input`
@@ -119,7 +119,7 @@ const NameForm = styled.input`
     max-width: 800px;
     max-height: 50px;
   }
-  @media(min-width: 2500px) {
+  @media (min-width: 2500px) {
     max-width: 1200px;
   }
 `
@@ -133,8 +133,8 @@ const Label = styled.label`
   z-index: 1;
   font-size: 0.8rem;
   ${({ theme }) => theme.media.tablet} {
-   font-size: 1rem;
-   margin: 0 auto 10px auto;
+    font-size: 1rem;
+    margin: 0 auto 10px auto;
   }
   ${({ theme }) => theme.media.tabletLandscape} {
     max-width: 600px;
@@ -142,7 +142,7 @@ const Label = styled.label`
   ${({ theme }) => theme.media.bigDesktop} {
     max-width: 800px;
   }
-  @media(min-width: 2500px) {
+  @media (min-width: 2500px) {
     max-width: 1200px;
   }
 `
@@ -175,7 +175,7 @@ const EmailForm = styled.input`
     max-width: 800px;
     max-height: 50px;
   }
-  @media(min-width: 2500px) {
+  @media (min-width: 2500px) {
     max-width: 1200px;
   }
 `
@@ -211,7 +211,7 @@ const MsgForm = styled.textarea`
     max-width: 800px;
     max-height: 150px;
   }
-  @media(min-width: 2500px) {
+  @media (min-width: 2500px) {
     max-width: 1200px;
   }
 `
@@ -236,28 +236,27 @@ const ButtonWrap = styled.div`
 `
 
 const ButtonForm = styled.button`
+  border-radius: 8px;
   cursor: pointer;
   position: relative;
   display: block;
   margin: 0 auto;
+  width: 200px;
   background-color: transparent;
   border: 2px solid ${({ theme }) => theme.colors.white};
-  width: 150px;
-  height: 30px;
   margin-top: 20px;
   font-family: 'Rubik', sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 300;
   color: ${({ theme }) => theme.colors.white};
   letter-spacing: normal;
   transition: all 200ms ease-in;
   z-index: 1;
+  padding: 10px 25px;
 
   :hover {
     background-color: ${({ theme }) => theme.colors.red};
-    font-size: .9rem;
     transition: all 200ms ease-in;
-    letter-spacing: 1px;
     color: ${({ theme }) => theme.colors.white};
     border: 2px solid ${({ theme }) => theme.colors.red};
   }
@@ -331,18 +330,15 @@ export default function Form(props) {
             </p>
             <Label htmlFor="firstName" id="nameLabel">
               <NameForm type="text" name="firstName" onChange={handleChange} />
-              
               Name
             </Label>
             <Label htmlFor="email" id="emailLabel">
               <EmailForm type="text" name="email" onChange={handleChange} />
-              
               Email
             </Label>
 
             <Label htmlFor="message" id="messageLabel">
               <MsgForm name="message" onChange={handleChange} />
-              
               Message
             </Label>
 

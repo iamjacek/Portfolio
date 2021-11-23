@@ -24,7 +24,7 @@ const Background = styled.div`
     background: url('${img}');
     background-position: right 80%;
     background-size: cover; 
-    opacity: .1;
+    opacity: .4;
     position: absolute;
     margin: auto;
     position: absolute;
@@ -106,52 +106,66 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.myBackground = null
-    
   }
 
   handleLoad = () => {
     const tl = new TimelineMax()
     if (window.screen.width > 1365) {
-      tl.fromTo(myLogo, 0.7, { opacity: 0 }, {  opacity: 1, ease: Power2.easeInOut })
+      tl.fromTo(
+        myGradient,
+        1,
+        { opacity: 1 },
+        { opacity: 0, ease: Power2.easeInOut }
+      )
         .fromTo(
           this.myBackground,
-          0.5,
-          { height: '0%' },
-          { height: '80%', ease: Power2.easeInOut }
+          1,
+          { height: 0 },
+          { height: '80%', ease: Power2.easeInOut },
+          '-=0.8'
+        )
+        .fromTo(
+          myLogo,
+          0.7,
+          { opacity: 0 },
+          { opacity: 1, ease: Power2.easeInOut },
+          '+=0'
         )
         .fromTo(
           this.myBackground,
           0.6,
           { width: '74%' },
-          { width: '100%', ease: Power2.easeInOut }
+          { width: '100%', ease: Power2.easeInOut },
+          '-=0.5'
         )
-        .fromTo(
-          myGradient,
-          0.7,
-          { opacity: 1 },
-          { opacity: 0, ease: Power2.easeInOut },
-          '-=1.5'
-        )
+
         .fromTo(
           mySocials,
-          0.6,
+          1.9,
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, ease: Power2.easeInOut },
-          '-=1'
+          '+=0.1'
         )
         .fromTo(
           myArrow,
           0.5,
           { opacity: 0 },
           { opacity: 1, ease: Power2.easeInOut },
-          '-=1.2'
+          '-=1.5'
         )
         .fromTo(
           myHeader,
-          0.5,
+          1.5,
           { y: -20, opacity: 0 },
           { y: 0, opacity: 1, ease: Power2.easeInOut },
-          '-=1.2'
+          '-=3.4'
+        )
+        .fromTo(
+          this.myBackground,
+          0.6,
+          { height: '80%' },
+          { height: '100%', ease: Power2.easeInOut },
+          '-=1'
         )
     } else {
       tl.fromTo(myLogo, 0.8, { y: '50%' }, { y: '0%', ease: Power2.easeInOut })
@@ -177,7 +191,7 @@ class Home extends Component {
         )
         .fromTo(
           myGradient,
-          1,
+          2,
           { opacity: 1 },
           { opacity: 0, ease: Power2.easeInOut },
           '-=2'
@@ -248,21 +262,25 @@ class Home extends Component {
               src={icon1}
               direct="https://twitter.com/JacekWitucki"
               aria="Twitter Web Development Jacek Witucki"
+              info="twitter icon"
             />
             <Icon
               src={icon2}
               direct="https://www.linkedin.com/in/iamjacek/"
               aria="LinkedIn Web Development Jacek Witucki"
+              info="linkedin icon"
             />
             <Icon
               src={icon3}
               direct="https://www.instagram.com/i_am_jacek/"
               aria="Instagram Web Development Jacek Witucki"
+              info="instagram icon"
             />
             <Icon
               src={icon4}
               direct="https://github.com/iamjacek"
               aria="Github Web Development Jacek Witucki"
+              info="github icon"
             />
           </SocialWrapper>
           <Gradient id="myGradient" />

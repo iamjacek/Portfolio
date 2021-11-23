@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const View = styled.div`
+  border-radius: 8px;
   margin: 20px 0;
   border: ${({ theme }) => theme.colors.gray} 1px solid;
   width: 300px;
@@ -26,22 +27,22 @@ const View = styled.div`
     opacity: 1;
   }
   :hover .fromLeft {
-    transform: translate(0, -310px);
+    transform: translate(0, -340px);
   }
   :hover .fromRight {
-    transform: translate(0, -310px);
+    transform: translate(0, -340px);
   }
   :hover h2 {
     font-size: 24px;
     background: linear-gradient(
       to left,
       black -280%,
-      ${({ theme }) => theme.colors.gray} 150%
+      ${({ theme }) => theme.colors.red} 150%
     );
   }
   :hover p {
     opacity: 1;
-    transform: translateY(-320px);
+    transform: translateY(-340px);
   }
 
   h2 {
@@ -58,18 +59,19 @@ const View = styled.div`
     padding: 15px 0;
     color: ${({ theme }) => theme.colors.white};
     background: none;
-    transform: translateY(-320px);
+    transform: translateY(-340px);
     transition: all 0.2s ease-out;
   }
   p {
     font-family: Georgia, serif;
     font-weight: 800;
-    font-size: 14px;
+    font-size: 18px;
     position: relative;
-    padding: 10px 10%;
+    padding: 10px;
+    line-height: 24px;
     text-align: center;
     opacity: 0;
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.red};
     transform: translateY(-320px);
     transition: all 0.1s ease-out;
   }
@@ -101,14 +103,15 @@ const Info = styled.a`
   position: relative;
   transition: all 0.1s ease-out;
   font-size: 12px;
-  color: ${({ theme }) => theme.colors.gray};
-  padding: 5px 25px;
-  border: ${({ theme }) => theme.colors.gray} 2px solid;
-  border-radius: 2px;
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.red};
+  padding: 7px 30px;
+  border-radius: 18px;
+
   transform: ${({ left }) =>
     left ? 'translate(-250px, -310px)' : 'translate(250px, -310px)'};
   :hover {
-    background: lightgray;
+    background: #e35344;
   }
 `
 const InfoWrapper = styled.div`
@@ -132,14 +135,15 @@ const Technology = styled.div`
 const Feature = styled.div`
   text-transform: uppercase;
   display: inline-block;
-  padding: 5px 15px;
-  margin: 3px;
+  padding: 3px 10px;
+  margin: 1px;
   border-radius: 12px;
-  font-family: Georgia, serif;
+  font-family: 'Montserrat', serif;
   font-weight: 600;
   font-size: 10px;
-  background: ${({ theme }) => theme.colors.gray};
-  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.red};
+  border: 1px ${({ theme }) => theme.colors.red} solid;
 `
 
 export default function JobCard({

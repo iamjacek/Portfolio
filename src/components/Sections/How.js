@@ -13,7 +13,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
- 
 `
 
 const StyledWrapper = styled.div`
@@ -38,17 +37,12 @@ class How extends Component {
   }
 
   componentDidMount() {
-    tl.fromTo(
-      '.howContent',
-      1,
-      { opacity: 0 },
-      { opacity: 1 }
-    )
+    tl.fromTo('.howContent', 1, { opacity: 0 }, { opacity: 1 })
     const checkHeight = () => {
       let isScrolling
       const homeHeight = document.querySelector('#Home').offsetHeight
       const aboutHeight = document.querySelector('#About').offsetHeight
-      const jobHeight = document.querySelector('#Job').offsetHeight
+      const jobHeight = document.querySelector('#MyWork').offsetHeight
       window.addEventListener(
         'scroll',
         () => {
@@ -75,11 +69,10 @@ class How extends Component {
     return (
       <Wrapper id="Testimonials">
         <StyledWrapper>
-        <h1 className="howContent">Testimonials</h1>
-        <CarouselWrapper className="howContent">
-          <Carousel />
-        </CarouselWrapper>
-         
+          <h1 className="howContent">Testimonials</h1>
+          <CarouselWrapper className="howContent">
+            <Carousel />
+          </CarouselWrapper>
         </StyledWrapper>
       </Wrapper>
     )

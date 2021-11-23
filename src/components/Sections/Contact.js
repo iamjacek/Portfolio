@@ -58,7 +58,13 @@ const AvatarWrapper = styled.div`
   width: calc(130px + 10vw);
   margin: 10px auto;
   height: calc(130px + 10vw);
-
+  border: solid ${({ theme }) => theme.colors.gray} 10px;
+  border-radius: 2px;
+  transition: border 0.6s, transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+    border: solid ${({ theme }) => theme.colors.red} 14px;
+  }
   ${({ theme }) => theme.media.tablet} {
     margin: -10px auto 10px auto;
   }
@@ -277,13 +283,13 @@ class Contact extends Component {
   componentDidMount() {
     const myImage = new hoverEffect({
       parent: document.querySelector('#avatar'),
-      intensity: 0.3,
-      image1: avatarpic,
-      image2: avatarpic2,
+      intensity: 1,
+      image1: avatarpic2,
+      image2: avatarpic,
       displacementImage: diss,
       easing: Power4.easeOut,
-      speedIn: 0.6,
-      speedOut: 0.6,
+      speedIn: 0.7,
+      speedOut: 0.7,
     })
 
     tl.from('.logoContact', 0.4, {
@@ -315,7 +321,7 @@ class Contact extends Component {
       let isScrolling
       const homeHeight = document.querySelector('#Home').offsetHeight
       const aboutHeight = document.querySelector('#About').offsetHeight
-      const jobHeight = document.querySelector('#Job').offsetHeight
+      const jobHeight = document.querySelector('#MyWork').offsetHeight
       const howHeight = document.querySelector('#Testimonials').offsetHeight
 
       //animation on scroll
@@ -361,6 +367,7 @@ class Contact extends Component {
 
           <Name className="contactContent">Jacek Witucki</Name>
           <Ocupation className="contactContent">Web Development</Ocupation>
+
           <AvatarWrapper id="avatar" />
 
           <ButtonWrapper onClick={this.toggleForm} className="contactContent">

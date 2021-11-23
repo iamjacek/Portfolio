@@ -22,17 +22,33 @@ const Wrapper = styled.div`
   padding: 0;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   ${({ theme }) => theme.media.bigDesktop} {
     min-height: unset;
+  }
+
+  h1 {
+    position: relative;
+    top: 20px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.white};
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    margin: 30px;
+    font-size: 28px;
+
+    ${({ theme }) => theme.media.bigDesktop} {
+      font-size: calc(28px + 0.4vw);
+    }
   }
 `
 
 const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
-  margin: 10% 0;
+  margin: 2% 0 10% 0;
   padding: 0;
   display: flex;
   align-items: center;
@@ -96,7 +112,8 @@ class Job extends Component {
 
   render() {
     return (
-      <Wrapper id="Job">
+      <Wrapper id="MyWork">
+        <h1 id="myTitle">MY WORK</h1>
         <StyledWrapper>
           <JobCard
             picture={pic4}

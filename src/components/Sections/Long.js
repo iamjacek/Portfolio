@@ -12,7 +12,7 @@ const Background = styled.div`
     width: 100%;
     background: url('${img}') bottom right;
     background-size: cover;
-    opacity: .03;
+    opacity: .08;
     position: absolute;
     top: 0;
     left: 0; 

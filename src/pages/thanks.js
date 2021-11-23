@@ -50,6 +50,7 @@ const Content = styled.div`
 `
 
 const ButtonWrapper = styled.div`
+  border-radius: 8px;
   position: absolute;
   cursor: pointer;
   bottom: 10%;

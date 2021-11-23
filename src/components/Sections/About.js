@@ -15,7 +15,7 @@ const Background = styled.div`
     background: url('${img}');
     background-position: right bottom;
     background-size: cover; 
-    opacity: .07;
+    opacity: .13;
     position: absolute;
     top: 0;
     left: 0;
@@ -55,6 +55,7 @@ const Frame = styled.div`
   min-height: 700px;
   width: 80%;
   border: 3px solid ${({ theme }) => theme.colors.white};
+  border-radius: 18px;
   background: linear-gradient(
     to left,
     black -280%,
@@ -119,12 +120,11 @@ const Laptop = styled.div`
     background: url(${src2}) no-repeat;
     max-width: unset;
     background-size: contain;
-    background-position-y: 60%;
+    background-position-y: center;
   }
   ${({ theme }) => theme.media.tabletLandscape} {
-    background-position-y: 20%;
+    background-position-y: center;
   }
-  
 `
 
 const Container = styled.div`
@@ -140,26 +140,32 @@ const Container = styled.div`
     position: relative;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     padding: 10% 10%;
-    height: 50%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+    line-height: 22px;
     ${({ theme }) => theme.media.tablet} {
       padding: 0 5%;
       width: 100%;
     }
     ${({ theme }) => theme.media.desktop} {
-      font-size: calc(14px + 0.2vw);
+      font-size: 18px;
+      line-height: 25px;
     }
     ${({ theme }) => theme.media.bigDesktop} {
-      font-size: calc(14px + 0.4vw);
+      font-size: 24px;
+      line-height: 35px;
     }
   }
   ${({ theme }) => theme.media.tablet} {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     min-height: 250px;
   }
 `
@@ -253,11 +259,14 @@ class About extends Component {
                 </AboutPicture>
 
                 <p id="myText">
-                  Full of passion front-end web developer. Has discovered his
-                  passion for programming and design in the early days. Making
-                  first steps in high school, with love to code, keep trying to
-                  make things on the web alive and vital. Father of two awesome
-                  kids! Active on gym and PS4 network!
+                  👋Hello there, my name is Jacek!
+                  <br />
+                  👨🏻‍💻 I am self taught frontend developer. <br />
+                  🔭I like to use new technologies and some UI/UX principles to
+                  improve website's look and feel. <br />
+                  I’m constantly trying to improve and get to the next level.{' '}
+                  <br /> ✍🏻 Check my work here or visit dribbble profile to find
+                  more about me.
                 </p>
               </Container>
 

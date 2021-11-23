@@ -56,6 +56,7 @@ const ButtonWrapper = styled.div`
   margin-top: 0;
   overflow: hidden;
   border: 2px solid ${({ theme }) => theme.colors.white};
+  border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   transition: 0.5s;

@@ -4,6 +4,8 @@ import { TimelineMax } from 'gsap'
 
 import img from '../../assets/background_home.jpg'
 
+import vector from '../../assets/vec.png'
+
 import ButtonTech from '../Buttons/ButtonTech'
 
 const Background = styled.div`
@@ -12,7 +14,7 @@ const Background = styled.div`
     background: url('${img}');
     background-position: left bottom;
     background-size: cover; 
-    opacity: .07;
+    opacity: .1;
     position: absolute;
     top: 0;
     left: 0;
@@ -20,7 +22,7 @@ const Background = styled.div`
 `
 
 const StyledWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,16 +57,18 @@ const ButtonWrapper = styled.div`
 `
 
 const Field = styled.div`
-  font-size: 12px;
+  font-size: 16px;
+  margin: 5px 0;
+  line-height: 1.2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   opacity: 0;
   color: #b1aca9;
   ${({ theme }) => theme.media.desktop} {
-    font-size: 14px;
+    font-size: 18px;
   }
   ${({ theme }) => theme.media.bigDesktop} {
-    font-size: 16px;
+    font-size: 24px;
   }
 `
 
@@ -74,7 +78,9 @@ const Frame = styled.div`
   position: relative;
   height: 80%;
   width: 80%;
+
   border: 3px solid ${({ theme }) => theme.colors.white};
+  border-radius: 18px;
   background: linear-gradient(
     to left,
     black -280%,
@@ -88,30 +94,56 @@ const Frame = styled.div`
 `
 
 const Group = styled.div`
+  height: 50%;
+  ${({ theme }) => theme.media.tablet} {
+    height: 100%;
+  }
   width: 100%;
-  padding: 5%;
-  font-size: 14px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
   h1 {
-    font-size: 16px;
+    font-size: 18px;
+    letter-spacing: 0.1rem;
     opacity: 0;
     ${({ theme }) => theme.media.desktop} {
-      font-size: 16px;
+      font-size: 22px;
     }
     ${({ theme }) => theme.media.bigDesktop} {
-      font-size: 22px;
+      font-size: 28px;
     }
   }
 `
 const Container = styled.div`
+  padding: 50px 0;
   position: relative;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   ${({ theme }) => theme.media.tablet} {
     flex-direction: row;
     align-items: flex-start;
+  }
+`
+
+const Graphic = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 
@@ -126,7 +158,7 @@ const dismantle = () => {
     '0.05'
   ).staggerFromTo(
     '.myField2',
-    0.05,
+    1,
     { x: 0, ease: Expo.easeOut },
     { x: 1000, ease: Expo.easeOut },
     '0.05',
@@ -134,21 +166,19 @@ const dismantle = () => {
   )
 }
 const assemble = () => {
-  console.log('assembling')
-
   tl.staggerFromTo(
     '.myField',
-    0.1,
+    0.3,
     { x: -1000, opacity: 0, ease: Expo.easeOut },
     { x: 0, opacity: 1, delay: 0.2, ease: Expo.easeOut },
     '0.1'
   ).staggerFromTo(
     '.myField2',
-    0.1,
+    1,
     { x: 1000, opacity: 0, ease: Expo.easeOut },
     { x: 0, opacity: 1, delay: 0.2, ease: Expo.easeOut },
     '0.1',
-    '-=0.1'
+    '-=0.7'
   )
 }
 
@@ -175,31 +205,25 @@ class Technology extends Component {
         <Frame>
           <Container>
             <Group>
-              <h1 className="myField">Technology I like to use:</h1>
-              <Field className="myField">HTML, CSS/SASS, JS</Field>
-              <Field className="myField">REACT, GATSBY</Field>
-              <Field className="myField">
-                STYLED-COMPONENTS, TAILWIND, MATERIAL-UI
+              <h1 className="myField">Some stack I use:</h1>
+              <Field className="myField">HTML, CSS, JS</Field>
+              <Field className="myField">REACT, NODE, WORDPRESS</Field>
+              <Field className="myField">MongoDB, Heroku, CLI</Field>
+              <Field className="myField">FIGMA, ADOBE PS, XD</Field>
+              <Field
+                className="myField"
+                style={{ marginTop: '2rem', lineHeight: '1.5rem' }}
+              >
+                If you need help, just ask! I might have experience in a field
+                you need some help.
               </Field>
-              <Field className="myField">BOOTSTRAP, BEM</Field>
             </Group>
 
-            <Group>
-              <h1 className="myField">And some others I must reach for:</h1>
-              <Field className="myField">CLI & GIT</Field>
-              <Field className="myField">GULP, WEBPACK, PARCEL</Field>
-              <Field className="myField">NPM/YARN</Field>
-              <Field className="myField">
-                Strapi, Contentful, MongoDB, Stripe
-              </Field>
-              <Field className="myField">Heroku, Netlify</Field>
-            </Group>
-
-            <Group>
-              <h1 className="myField2">Designing and prototyping:</h1>
-              <Field className="myField2" long>
-                FIGMA, AFFINITY DESIGNER, ADOBE XD
-              </Field>
+            <Group className="myField2">
+              <Graphic>
+                <img src={vector} />
+              </Graphic>
+              <a href="https://www.freepik.com/stories">Vector by stories</a>
             </Group>
           </Container>
 

@@ -43,6 +43,7 @@ const ButtonWrapper = styled.div`
       mask-position: 0 0;
     }
   }
+  border-radius: 8px;
   position: absolute;
   top: 0;
   left: 0;

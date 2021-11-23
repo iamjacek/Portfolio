@@ -17,17 +17,21 @@ class IndexPage extends Component {
 
         <CookieConsent
           style={{
-            background: '#EF4837',
+            background: '#3d3d3d',
+            borderTop: '2px solid white',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-beetwen',
           }}
           buttonStyle={{
             color: '#F0EBE7',
             background: '#DE4030',
-            border: 'none',
+            border: 'white 2px solid',
             fontSize: '.9rem',
-            padding: '6px 25px',
-            fontWeight: '400',
-            fontFamily: 'Roboto',
-            margin: '0 20px 0 0',
+            padding: '10px 35px',
+            fontWeight: '300',
+            fontFamily: 'Montserrat',
           }}
           contentStyle={{ color: '#FCFCFC' }}
           sameSite="strict"

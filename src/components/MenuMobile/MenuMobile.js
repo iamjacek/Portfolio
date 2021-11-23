@@ -70,7 +70,7 @@ const SocialWrapper = styled.div`
   transition: transform 0.2s 0.6s ease-out;
 `
 
-const menuItems = ['Home', 'About', 'Job', 'Testimonials', 'Contact']
+const menuItems = ['Home', 'About', 'MyWork', 'Testimonials', 'Contact']
 
 const tl = new TimelineMax()
 
@@ -110,7 +110,7 @@ class MenuMobile extends Component {
             className="linkMenu"
             onClick={this.props.handleClick}
           >
-            {item}
+            {item === 'MyWork' ? 'My Work' : item}
           </LinkMenu>
         ))}
         <SocialWrapper isOpen={this.props.isOpen}>
